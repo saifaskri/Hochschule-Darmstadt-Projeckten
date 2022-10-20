@@ -15,7 +15,7 @@ class Shuhe{
         };
 
         int ShuheVolume(){
-            return this->getShuhe_hoehe()* this->getShuhe_Tiefe()* this->getShuhe_Oberflaeche();
+            return this->getShuhe_hoehe()* this->getShuhe_Tiefe()* this->getShuhe_Breite();
         }
 
         //Setters
@@ -27,8 +27,8 @@ class Shuhe{
             this->Shuhe_hoehe=x;
         };
 
-        void SetShuhe_Oberflaeche(int x){
-            this->Shuhe_Oberflaeche=x;
+        void SetShuhe_Breite(int x){
+            this->Shuhe_Breite=x;
         };
 
         void SetShuhe_Tiefe(int x){
@@ -44,18 +44,22 @@ class Shuhe{
             return this->Shuhe_hoehe;
         }
 
-        int getShuhe_Oberflaeche(){
-            return this->Shuhe_Oberflaeche;
+        int getShuhe_Breite(){
+            return this->Shuhe_Breite;
         }
 
         int getShuhe_Tiefe(){
             return this->Shuhe_Tiefe;
         }
 
+        int ShuheOberflaeche(){
+            return ((this->getShuhe_Breite() * this->getShuhe_hoehe())*2)+((this->getShuhe_Tiefe() * this->getShuhe_hoehe())*2);
+        }
+
     private:
         int Shuhe_Groesse;
         int Shuhe_hoehe;
-        int Shuhe_Oberflaeche;
+        int Shuhe_Breite;
         int Shuhe_Tiefe;
 
 
@@ -77,16 +81,17 @@ int main()
     cin>>Shuhe_hoehe;
     shuhe1.SetShuhe_hoehe(Shuhe_hoehe);
 
-    cout<<"Geben Sie Ihre Shuhe Oberflaeche"<<endl;
-    int Shuhe_Oberflaeche;
-    cin>>Shuhe_Oberflaeche;
-    shuhe1.SetShuhe_Oberflaeche(Shuhe_Oberflaeche);
+    cout<<"Geben Sie Ihre Shuhe Breit"<<endl;
+    int Shuhe_Breite;
+    cin>>Shuhe_Breite;
+    shuhe1.SetShuhe_Breite(Shuhe_Breite);
 
     cout<<"Geben Sie Ihre Shuhe Tiefe"<<endl;
     int Shuhe_Tiefe;
     cin>>Shuhe_Tiefe;
     shuhe1.SetShuhe_Tiefe(Shuhe_Tiefe);
 
+    cout<<"Die Oberflaeche der Kartoune ist:  "<< shuhe1.ShuheOberflaeche() << " cm2"<<endl;
     cout<<"Die Volume Ihre Shuhe ist "<< shuhe1.ShuheVolume() << " cm3"<<endl;
 
 return 0;
