@@ -94,6 +94,7 @@ string Check_If_The_Input_Is_Number(){
 void OutputFunction(string UserInput){
     string BigNumber;
     string SmallNumber;
+    string LastResult="";
     int    RestNumberAfterSubtruct;
     while(true){
         /*
@@ -106,11 +107,13 @@ void OutputFunction(string UserInput){
         //Make The Subtraction
         RestNumberAfterSubtruct = stoi(BigNumber) - stoi(SmallNumber);
 
-        //check if We Have The Same Number In the End
-        if(UserInput == to_string(RestNumberAfterSubtruct)){continue;}
-
         //Convert The Rest To String
         UserInput = Fill_In_The_Field(to_string(RestNumberAfterSubtruct),"0", 4);
+
+        //check if We Have The Same Number In the End
+        if(UserInput == LastResult){
+            break;
+        }else{LastResult = UserInput;}
 
         //Console Ausgabe
         cout << BigNumber << " - " << SmallNumber << " = " << UserInput<<endl;
