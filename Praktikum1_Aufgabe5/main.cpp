@@ -116,8 +116,7 @@ void OutputFunction(string UserInput){
         }else{LastResult = UserInput;}
 
         //Console Ausgabe
-        cout << BigNumber << " - " << SmallNumber << " = " << UserInput<<endl;
-        cout <<endl;
+        cout <<"          "<< BigNumber << " - " << SmallNumber << " = " << UserInput<<endl;
     }
 
 }
@@ -131,14 +130,15 @@ int main()
     //Muss Impliment if the Size Is Usable for Integer(Maybe Later)
     UserInput=Check_If_The_Input_Is_Number();
     cout << endl;
-    cout << endl;
-    cout << endl;
 
-    // OutPut
-    cout <<"Ausgangszahl "+ UserInput << endl ;
-    cout << endl;
+    cout << "===============================================" <<endl;
 
-    OutputFunction(UserInput);
+        // OutPut
+        cout <<"          "<<"Ausgangszahl "+ UserInput << endl ;
+        cout << endl;
+        OutputFunction(UserInput);
+
+    cout << "===============================================" <<endl;
 
 
     return 0;
